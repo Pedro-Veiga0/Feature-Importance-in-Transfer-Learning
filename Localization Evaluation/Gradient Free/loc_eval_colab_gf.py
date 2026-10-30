@@ -37,7 +37,9 @@ def patched_clear(self):
 
 pytorch_grad_cam.activations_and_gradients.ActivationsAndGradients.clear = patched_clear
 
-PROJECT_DIR = Path(os.environ.get("CAM_EVAL_ROOT", "/content")).expanduser()
+PROJECT_DIR = Path(
+    os.environ.get("CAM_EVAL_ROOT", str(Path(__file__).resolve().parents[2]))
+).expanduser()
 
 DATASETS = {
     "Arnold": {

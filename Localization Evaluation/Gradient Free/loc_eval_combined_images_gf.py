@@ -9,13 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = Path(
     os.environ.get(
         "CAM_EVAL_ROOT",
-        str(
-            BASE_DIR.parents[2]
-            / "Código"
-            / "Codigo Dissertacao"
-            / "UDA test"
-            / "ConfMix-master"
-        ),
+        str(BASE_DIR.parents[2]),
     )
 ).expanduser()
 SOURCE_ROOT = PROJECT_DIR / "CAM-Loc-Eval" / "GradientFree"

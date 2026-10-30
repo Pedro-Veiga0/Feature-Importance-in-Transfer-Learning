@@ -5,15 +5,15 @@ import numpy as np
 import os
 import csv
 from glob import glob
+from pathlib import Path
 
 from pytorch_grad_cam import GradCAM, GradCAMPlusPlus, LayerCAM, ShapleyCAM
 
 # =========================================================
 # USER SETTINGS
 # =========================================================
-PROJECT_DIR = os.path.join(
-    os.path.expanduser("~"), "Desktop", "Tese", "C\u00f3digo",
-    "Codigo Dissertacao", "UDA test", "ConfMix-master"
+PROJECT_DIR = os.environ.get(
+    "CAM_EVAL_ROOT", str(Path(__file__).resolve().parents[1])
 )
 OUTPUT_ROOT = os.path.join(PROJECT_DIR, "CAM-FAITHFULNESS", "GradientBased")
 RUN_SETTINGS = [

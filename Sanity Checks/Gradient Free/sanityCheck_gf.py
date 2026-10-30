@@ -1,5 +1,6 @@
 import copy
 import csv
+import os
 from pathlib import Path
 
 import cv2
@@ -13,10 +14,10 @@ from ultralytics import YOLO
 
 BASE_DIR = Path(__file__).resolve().parent
 OUTPUT_ROOT = BASE_DIR / "CAM-SanityCheck" / "GradientFree"
-MODEL_PATH = Path(r"B:\UDA test\ConfMix-master\CAM-Arnold\best_cityescapes.pt")
-IMAGE_PATH = Path(r"B:\UDA test\ConfMix-master\archive\train\img\train1.png")
 TARGET_LAYER_IDX = 17
-PROJECT_DIR = Path(r"B:\UDA test\ConfMix-master")
+PROJECT_DIR = Path(
+    os.environ.get("CAM_EVAL_ROOT", str(Path(__file__).resolve().parents[2]))
+).expanduser()
 EXPERIMENTS = [
     (
         "Archive",
@@ -32,7 +33,11 @@ EXPERIMENTS = [
         "Cityscapes",
         PROJECT_DIR / "CAM-Arnold" / "best_cityscapes.pt",
         Path(
-            r"C:\Users\Pedro Afonso\Desktop\Tese\Código\Codigo Dissertacao\UDA test\ConfMix-master\CAM-SanityCheck\GradientBased\Cityscapes\input_image.png"
+            PROJECT_DIR
+            / "CAM-SanityCheck"
+            / "GradientBased"
+            / "Cityscapes"
+            / "input_image.png"
         ),
     ),
 ]

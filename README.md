@@ -35,3 +35,12 @@ their paths to be adjusted before execution.
 
 The scripts are research code and generally require Python, PyTorch,
 Ultralytics, `pytorch-grad-cam`, OpenCV, NumPy, pandas, and scikit-image.
+
+## Data and model paths
+
+No personal machine paths or credentials are required. Scripts use paths
+relative to this repository by default. To use the original ConfMix project
+layout, datasets, and checkpoints from another location, set the
+`CAM_EVAL_ROOT` environment variable to that project directory before
+running an evaluation. The expected directories include `CAM-Arnold/`,
+`archive/`, `Rapid/`, and `Arnold Dataset/`, depending on the script.
